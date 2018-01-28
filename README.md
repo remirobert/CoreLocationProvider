@@ -1,0 +1,2 @@
+# CoreLocationProvider
+CoreLocation subscription provider.
