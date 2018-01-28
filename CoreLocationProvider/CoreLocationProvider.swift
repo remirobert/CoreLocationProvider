@@ -68,6 +68,7 @@ public class CoreLocationProvider: NSObject {
 
 extension CoreLocationProvider {
     public func startListening() {
+        lastLocation = nil
         singleUpdate = false
         locationManager.startUpdatingLocation()
     }
@@ -85,11 +86,13 @@ extension CoreLocationProvider {
 extension CoreLocationProvider: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager,
                                 didUpdateLocations locations: [CLLocation]) {
+        guard let location = locationFilter.bestLocation(from: locations) else { return }
         if singleUpdate {
             stopListening()
         }
-        guard let location = locationFilter.bestLocation(from: locations) else { return }
-        broadcastNewLocation(location: location)
+        if !singleUpdate || lastKnownLocation == nil {
+            broadcastNewLocation(location: location)
+        }
         lastLocation = location
     }
 

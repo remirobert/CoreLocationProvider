@@ -46,6 +46,21 @@ class CoreLocatonProviderTests: XCTestCase {
         XCTAssertEqual(locationUpdateSpy.locations, points)
     }
 
+    func testListeningSingleLocations() {
+        let points = [
+            CLLocation(latitude: 34, longitude: 43),
+            CLLocation(latitude: 31, longitude: 47),
+            CLLocation(latitude: 38, longitude: 47)
+        ]
+
+        coreLocationProvider.startListeningSingleUpdate()
+        locationManagerMock.simulateNewLocations(locations: points)
+
+        XCTAssertNil(locationUpdateSpy.error)
+        XCTAssertTrue(locationUpdateSpy.locations.count == 1)
+        XCTAssertEqual(locationUpdateSpy.locations.first!, points.first!)
+    }
+
     func testListeningWithError() {
         coreLocationProvider.startListening()
         locationManagerMock.simulateErrorListening(error: LocationErrorStub.errorLocation)
