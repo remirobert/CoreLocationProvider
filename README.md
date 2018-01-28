@@ -5,6 +5,17 @@
 A centralized location update subscription for you app.
 CoreLocationProvider is a wrapper around CoreLocation's CLLocationManager giving you a centralized place to manage location updates in your app. Uses a list of subscriber to forwards the data back.
 
+## Installation
+
+To add CoreLocationProvider to your app, simply add **CoreLocationProvider** to your ```Podfile```.
+
+```
+target 'MyApp' do
+  use_frameworks!
+  pod 'CoreLocationProvider'
+end
+```
+
 ## Location Authorization Status
 
 CoreLocationProvider can manage the location authorization status of your app. You can subscribe to it, to be informed when the authorization status is updated.
