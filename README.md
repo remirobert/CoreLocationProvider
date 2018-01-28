@@ -68,3 +68,19 @@ You can access to the last known location:
 ```Swift
 CoreLocationProvider.shared.lastKnownLocation
 ```
+
+## Subscription
+
+You can subscribe to the the location updates / permission in different places of your app. You can remove a subscription or all of them by calling the appropriete function.
+
+Note that the subscription will be automaticcaly unsubbscribed when the object will be release. So you don't need to unsubscribe manually, or if you want to stop receiving updates.
+
+```Swift
+CoreLocationProvider.shared.subscribeLocationUpdate(object: self)
+CoreLocationProvider.shared.unsubscribeLocationUpdate(object: self)
+CoreLocationProvider.shared.unsubscribeAllLocationUpdate()
+
+CoreLocationProvider.shared.subscribePermissionUpdate(object: self)
+CoreLocationProvider.shared.unsubscribePermissionUpdate(object: self)
+CoreLocationProvider.shared.unsubscribeAllPermissionUpdate()
+```
