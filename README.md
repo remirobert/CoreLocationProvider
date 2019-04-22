@@ -1,6 +1,6 @@
 # CoreLocationProvider
 
-[![Build Status](https://www.bitrise.io/app/cb18c1f8eef859c0/status.svg?token=sy_NvUGoqs4gi8PyViB_Ng)](https://www.bitrise.io/app/cb18c1f8eef859c0)
+[![Build Status](https://app.bitrise.io/app/cb18c1f8eef859c0/status.svg?token=sy_NvUGoqs4gi8PyViB_Ng)](https://app.bitrise.io/app/cb18c1f8eef859c0/status.svg?token=sy_NvUGoqs4gi8PyViB_Ng)
 
 A centralized location update subscription for you app.
 CoreLocationProvider is a wrapper around CoreLocation's CLLocationManager giving you a centralized place to manage location updates in your app. Uses a list of subscriber to forwards the data back.
